@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Emerald Professor Oak Challenge</title>
+    <script src="../script.js" defer></script>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h2 id="js-counter"></h2>
+    <main id="js-table">
+
+    </main>
+
+    <script>
+        const name = 'emerald-pre-badge-2'
+        const pokemon = [
+          // {image: 'images/025_Pikachu.png'},
+          // {image: 'images/026_Raichu.png'},
+          // {image: 'images/027_Sabelette.png'},
+          // {image: 'images/028_Sablaireau.png'},
+          // {image: 'images/037_Goupix.png'},
+          // {image: 'images/038_Feunard.png'},
+          // {image: 'images/039_Rondoudou.png'},
+          // {image: 'images/040_Grodoudou.png'},
+          {image: 'images/041_Nosferapti.png'},
+          {image: 'images/042_Nosferalto.png'},
+          {image: 'images/043_Mystherbe.png'},
+          {image: 'images/044_Ortide.png'},
+          {image: 'images/063_Abra.png', caught: true},
+          {image: 'images/064_Kadabra.png', caught: true},
+          {image: 'images/072_Tentacool.png'},
+          {image: 'images/073_Tentacruel.png'},
+          {image: 'images/074_Racaillou.png'},
+          {image: 'images/075_Gravalanch.png'},
+          {image: 'images/118_Poissirene.png'},
+          {image: 'images/119_Poissoroy.png'},
+          {image: 'images/129_Magicarpe.png'},
+          {image: 'images/130_Leviator.png'},
+          {image: 'images/169_Nostenfer.png'},
+          {image: 'images/183_Marill.png', caught: true},
+          {image: 'images/184_Azumarill.png', caught: true},
+          // {image: 'images/252_Arcko.png', caught: true},
+          // {image: 'images/253_Massko.png', caught: true},
+          // {image: 'images/254_Jungko.png', caught: true},
+          // {image: 'images/255_Poussifeu.png', caught: true},
+          // {image: 'images/256_Galifeu.png', caught: true},
+          // {image: 'images/257_Brasegali.png', caught: true},
+          {image: 'images/258_Gobou.png', caught: true},
+          {image: 'images/259_Flobio.png', caught: true},
+          {image: 'images/260_Laggron.png', caught: true},
+          {image: 'images/261_Medhyena.png', caught: true},
+          {image: 'images/262_Grahyena.png', caught: true},
+          {image: 'images/263_Zigzaton.png', caught: true},
+          {image: 'images/264_Lineon.png', caught: true},
+          {image: 'images/265_Chenipotte.png', caught: true},
+          {image: 'images/266_Armulys.png', caught: true},
+          {image: 'images/267_Charmillon.png', caught: true},
+          {image: 'images/268_Blindalys.png', caught: true},
+          {image: 'images/269_Papinox.png', caught: true},
+          {image: 'images/270_Nenupiot.png', caught: true},
+          {image: 'images/271_Lombre.png', caught: true},
+          // {image: 'images/272_Ludicolo.png'},
+          {image: 'images/273_Grainipiot.png', caught: true},
+          {image: 'images/274_Pifeuil.png', caught: true},
+          // {image: 'images/275_Tengalice.png'},
+          {image: 'images/276_Nirondelle.png', caught: true},
+          {image: 'images/277_Heledelle.png', caught: true},
+          {image: 'images/278_Goelise.png', caught: true},
+          {image: 'images/279_Bekipan.png', caught: true},
+          {image: 'images/280_Tarsal.png', caught: true},
+          {image: 'images/281_Kirlia.png', caught: true},
+          {image: 'images/282_Gardevoir.png', caught: true},
+          // {image: 'images/283_Arakdo.png'},
+          // {image: 'images/284_Maskadra.png'},
+          {image: 'images/285_Balignon.png', caught: true},
+          {image: 'images/286_Chapignon.png', caught: true},
+          {image: 'images/287_Parecool.png', caught: true},
+          {image: 'images/288_Vigoroth.png', caught: true},
+          {image: 'images/289_Monaflemit.png', caught: true},
+          {image: 'images/290_Ningale.png', caught: true},
+          {image: 'images/291_Ninjask.png', caught: true},
+          {image: 'images/292_Munja.png', caught: true},
+          {image: 'images/293_Chuchmur.png', caught: true},
+          {image: 'images/294_Ramboum.png', caught: true},
+          {image: 'images/295_Brouhabam.png', caught: true},
+          {image: 'images/296_Makuhita.png'},
+          {image: 'images/297_Hariyama.png'},
+          // {image: 'images/298_Azurill.png'},
+          // {image: 'images/299_Tarinor.png'},
+          {image: 'images/300_Skitty.png', caught: true},
+          // {image: 'images/301_Delcatty.png'},
+          {image: 'images/302_Tenefix.png'},
+          // {image: 'images/303_Mysdibule.png'},
+          {image: 'images/304_Galekid.png'},
+          {image: 'images/305_Galegon.png'},
+          {image: 'images/306_Galeking.png'},
+          // {image: 'images/307_Meditikka.png'},
+          // {image: 'images/308_Charmina.png'},
+          {image: 'images/309_Dynavolt.png'},
+          {image: 'images/310_Elecsprint.png'},
+          {image: 'images/311_Posipi.png'},
+          {image: 'images/312_Negapi.png'},
+          {image: 'images/313_Muciole.png'},
+          {image: 'images/314_Lumivole.png'},
+          // {image: 'images/315_Roselia.png'},
+          {image: 'images/316_Gloupti.png'},
+          {image: 'images/317_Avaltout.png'},
+        ]
+    </script>
+</body>
+</html>
