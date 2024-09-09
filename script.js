@@ -8,13 +8,18 @@ if (window.localStorage.getItem(name) !== null) {
 pokemon.forEach((poke, index) => {
   const imgElement = document.createElement('img')
   imgElement.src = poke.image
-  if (poke.caught || (pokemonData && pokemonData[index] && pokemonData[index].caught)) {
+  if (poke.caught && (pokemonData && pokemonData[index] && !pokemonData[index].caught)) {
+
+  } else if (poke.caught || (pokemonData && pokemonData[index] && pokemonData[index].caught)) {
     imgElement.classList.add('caught')
   }
 
   imgElement.addEventListener('click', () => {
     imgElement.classList.toggle('caught')
     poke.caught = imgElement.classList.contains('caught')
+    if (pokemonData && pokemonData[index]) {
+      pokemonData[index] = poke
+    }
 
     changeCounter()
     saveData()
@@ -23,7 +28,7 @@ pokemon.forEach((poke, index) => {
 })
 
 const saveData = () => {
-  window.localStorage.setItem(name, JSON.stringify(pokemon))
+  window.localStorage.setItem(name, JSON.stringify(pokemonData ? pokemonData : pokemon))
 }
 
 const changeCounter = () => {
