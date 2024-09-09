@@ -28,7 +28,8 @@ const saveData = () => {
 
 const changeCounter = () => {
   const nbCaught = document.querySelectorAll('.caught').length
-  document.querySelector('#js-counter').textContent = nbCaught + ' / ' + pokemon.length
+  const perCent = Math.floor((nbCaught / pokemon.length) * 100)
+  document.querySelector('#js-counter').textContent = nbCaught + ' / ' + pokemon.length + ' (' + perCent + '%)'
 }
 
 changeCounter()
