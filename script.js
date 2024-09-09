@@ -33,3 +33,13 @@ const changeCounter = () => {
 }
 
 changeCounter()
+
+const body = document.querySelector('body')
+const buttonElement = document.createElement('button')
+buttonElement.textContent = 'Reset'
+buttonElement.addEventListener('click', (event) => {
+  event.preventDefault()
+  window.localStorage.removeItem(name)
+  window.location.reload()
+})
+body.appendChild(buttonElement)
