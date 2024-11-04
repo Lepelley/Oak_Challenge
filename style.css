@@ -1,8 +1,11 @@
-.caught {
-    background: orange;
+img {
+    filter: grayscale(1);
+}
+
+.caught{
+    filter: grayscale(0);
 }
 
 #js-counter {
     text-align: center;
-
 }
