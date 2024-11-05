@@ -5,6 +5,9 @@ if (window.localStorage.getItem(name) !== null) {
   pokemonData = JSON.parse(window.localStorage.getItem(name))
 }
 
+const queryString = window.location.search
+const urlParams = new URLSearchParams(queryString)
+
 pokemon.forEach((poke, index) => {
   const imgElement = document.createElement('img')
   imgElement.src = poke.image
@@ -12,6 +15,9 @@ pokemon.forEach((poke, index) => {
 
   } else if (poke.caught || (pokemonData && pokemonData[index] && pokemonData[index].caught)) {
     imgElement.classList.add('caught')
+    if (poke.caught && 'caught' === urlParams.get('hide')) {
+      return;
+    }
   }
 
   imgElement.addEventListener('click', () => {
@@ -32,9 +38,10 @@ const saveData = () => {
 }
 
 const changeCounter = () => {
+  const stepLength = document.querySelectorAll('#js-table img').length
   const nbCaught = document.querySelectorAll('.caught').length
-  const perCent = Math.floor((nbCaught / pokemon.length) * 100)
-  document.querySelector('#js-counter').textContent = nbCaught + ' / ' + pokemon.length + ' (' + perCent + '%)'
+  const perCent = Math.floor((nbCaught / stepLength) * 100)
+  document.querySelector('#js-counter').textContent = nbCaught + ' / ' + stepLength + ' (' + perCent + '%)'
 }
 
 changeCounter()
